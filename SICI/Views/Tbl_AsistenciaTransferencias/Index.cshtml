@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SICI.Modelo.Tbl_AsistenciaTransferencias>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Sedes.NombreSede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tbl_Transferencias.NombreTransferencia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Sedes.NombreSede)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Transferencias.NombreTransferencia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAsistenciaTransferencia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAsistenciaTransferencia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAsistenciaTransferencia })
+        </td>
+    </tr>
+}
+
+</table>

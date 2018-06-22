@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SICI.Modelo.Tbl_Anuncios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo anuncio", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Autor
+        </th>
+        <th>
+            Anuncio
+        </th>
+        <th>
+            Descripcion anuncio
+        </th>
+        <th>
+            Fecha creacion anuncio
+        </th>
+        <th>
+            Imagen
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            Autor
+        </td>
+        <td>
+            Anuncio
+        </td>
+        <td>
+            DescripcionAnuncio
+        </td>
+        <td>
+            Fecha creacion anuncio
+        </td>
+        <td>
+            Imagen
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAnuncio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAnuncio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAnuncio })
+        </td>
+    </tr>
+}
+
+</table>

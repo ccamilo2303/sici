@@ -1,0 +1,43 @@
+﻿@model SICI.Modelo.Tbl_Calificaciones
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Calificaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Calificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Transferencias.NombreTransferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Transferencias.NombreTransferencia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCalificacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

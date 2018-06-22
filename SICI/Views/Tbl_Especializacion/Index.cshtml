@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SICI.Modelo.Tbl_Especializacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nueva especializacion", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Especializacion
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionEspecializacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdEspecializacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdEspecializacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdEspecializacion })
+        </td>
+    </tr>
+}
+
+</table>

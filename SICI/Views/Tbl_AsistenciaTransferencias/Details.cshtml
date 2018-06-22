@@ -1,0 +1,51 @@
+﻿@model SICI.Modelo.Tbl_AsistenciaTransferencias
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_AsistenciaTransferencias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Sedes.NombreSede)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Sedes.NombreSede)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Transferencias.NombreTransferencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Transferencias.NombreTransferencia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAsistenciaTransferencia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

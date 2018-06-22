@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SICI.Modelo.Tbl_Transferencias>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nueva transferencia", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Nombre transferencia
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Cupos iniciales
+        </th>
+        <th>
+            Cupos actuales
+        </th>
+        <th>
+            Fecha inicio
+        </th>
+        <th>
+            Fecha fin
+        </th>
+        <th>
+            Fecha creacion
+        </th>
+        <th>
+           Especializacion
+        </th>
+        <th>
+           Estado
+        </th>
+        <th>
+           Sede
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreTransferencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuposIniciales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuposActuales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Especializacion.DescripcionEspecializacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Estados.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Sedes.NombreSede)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTransferencia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTransferencia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTransferencia })
+        </td>
+    </tr>
+}
+
+</table>

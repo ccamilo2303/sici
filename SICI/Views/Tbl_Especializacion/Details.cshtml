@@ -1,0 +1,27 @@
+﻿@model SICI.Modelo.Tbl_Especializacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Especializacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionEspecializacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionEspecializacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdEspecializacion }) |
+    <button type="button" class="btn btn-danger" onclick="location.href= '@Url.Action("Index")' ">Cancelar</button>
+</p>

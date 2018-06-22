@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="siciModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Anuncios">
+          <Key>
+            <PropertyRef Name="IdAnuncio" />
+          </Key>
+          <Property Name="IdAnuncio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutorAnuncio" Type="varchar" MaxLength="50" />
+          <Property Name="TituloAnuncio" Type="varchar" MaxLength="100" />
+          <Property Name="DescripcionAnuncio" Type="varchar" MaxLength="200" />
+          <Property Name="FechaCreacionAnuncio" Type="datetime" />
+          <Property Name="Imagen" Type="image" />
+        </EntityType>
+        <EntityType Name="Tbl_ArchivosUsuario">
+          <Key>
+            <PropertyRef Name="idRegistro" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="ContentType" Type="nvarchar" MaxLength="200" />
+          <Property Name="Data" Type="varbinary(max)" />
+          <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_AsistenciaTransferencias">
+          <Key>
+            <PropertyRef Name="IdAsistenciaTransferencia" />
+          </Key>
+          <Property Name="IdAsistenciaTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTransferencia" Type="int" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdSede" Type="int" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Calificaciones">
+          <Key>
+            <PropertyRef Name="IdCalificacion" />
+          </Key>
+          <Property Name="IdCalificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTransferencia" Type="int" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="Calificacion" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tbl_Discapacidades">
+          <Key>
+            <PropertyRef Name="IdDiscapacidad" />
+          </Key>
+          <Property Name="IdDiscapacidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Especializacion">
+          <Key>
+            <PropertyRef Name="IdEspecializacion" />
+          </Key>
+          <Property Name="IdEspecializacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionEspecializacion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_EspecializacionesUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdEspecializacion" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IdEspecializacion" Type="int" Nullable="false" />
+          <Property Name="nidreg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Estados">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_HistoricoNotificaciones">
+          <Key>
+            <PropertyRef Name="IdTransferencia" />
+          </Key>
+          <Property Name="IdTransferencia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_InformacionBasicaUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="25" />
+          <Property Name="Discapacidad" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="IdPerfil" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Inscripciones">
+          <Key>
+            <PropertyRef Name="IdInscripcion" />
+          </Key>
+          <Property Name="IdInscripcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="IdTransferencia" Type="int" />
+        </EntityType>
+        <EntityType Name="Tbl_Perfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+          </Key>
+          <Property Name="IdPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Sedes">
+          <Key>
+            <PropertyRef Name="IdSede" />
+          </Key>
+          <Property Name="IdSede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreSede" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Transferencias">
+          <Key>
+            <PropertyRef Name="IdTransferencia" />
+          </Key>
+          <Property Name="NombreTransferencia" Type="varchar" MaxLength="50" />
+          <Property Name="IdTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="CuposIniciales" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CuposActuales" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFin" Type="datetime" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="EstadoTransferencia" Type="int" Nullable="false" />
+          <Property Name="IdEspecializacion" Type="int" Nullable="false" />
+          <Property Name="IdSede" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOBASICAUSUARIO_DISCAPACIDADES">
+          <End Role="Tbl_Discapacidades" Type="Self.Tbl_Discapacidades" Multiplicity="0..1" />
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Discapacidades">
+              <PropertyRef Name="IdDiscapacidad" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Discapacidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario">
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Role="Tbl_ArchivosUsuario" Type="Self.Tbl_ArchivosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_ArchivosUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario">
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Role="Tbl_AsistenciaTransferencias" Type="Self.Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_Sedes">
+          <End Role="Tbl_Sedes" Type="Self.Tbl_Sedes" Multiplicity="0..1" />
+          <End Role="Tbl_AsistenciaTransferencias" Type="Self.Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Sedes">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="IdSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias">
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="1" />
+          <End Role="Tbl_AsistenciaTransferencias" Type="Self.Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario">
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Role="Tbl_Calificaciones" Type="Self.Tbl_Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Calificaciones">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Calificaciones_Tbl_Transferencias1">
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="0..1" />
+          <End Role="Tbl_Calificaciones" Type="Self.Tbl_Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_Calificaciones">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion">
+          <End Role="Tbl_Especializacion" Type="Self.Tbl_Especializacion" Multiplicity="1" />
+          <End Role="Tbl_EspecializacionesUsuario" Type="Self.Tbl_EspecializacionesUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Especializacion">
+              <PropertyRef Name="IdEspecializacion" />
+            </Principal>
+            <Dependent Role="Tbl_EspecializacionesUsuario">
+              <PropertyRef Name="IdEspecializacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario">
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="1" />
+          <End Role="Tbl_EspecializacionesUsuario" Type="Self.Tbl_EspecializacionesUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_EspecializacionesUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Estados">
+          <End Role="Tbl_Estados" Type="Self.Tbl_Estados" Multiplicity="0..1" />
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles">
+          <End Role="Tbl_Perfiles" Type="Self.Tbl_Perfiles" Multiplicity="0..1" />
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Perfiles">
+              <PropertyRef Name="IdPerfil" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario">
+          <End Role="Tbl_InformacionBasicaUsuario" Type="Self.Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Role="Tbl_Inscripciones" Type="Self.Tbl_Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Inscripciones">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inscripciones_Tbl_Transferencias1">
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="0..1" />
+          <End Role="Tbl_Inscripciones" Type="Self.Tbl_Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_Inscripciones">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Especializacion">
+          <End Role="Tbl_Especializacion" Type="Self.Tbl_Especializacion" Multiplicity="1" />
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Especializacion">
+              <PropertyRef Name="IdEspecializacion" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="IdEspecializacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Estados">
+          <End Role="Tbl_Estados" Type="Self.Tbl_Estados" Multiplicity="1" />
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="EstadoTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Sedes">
+          <End Role="Tbl_Sedes" Type="Self.Tbl_Sedes" Multiplicity="1" />
+          <End Role="Tbl_Transferencias" Type="Self.Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Sedes">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="IdSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="siciModel2StoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Anuncios" EntityType="Self.Tbl_Anuncios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_ArchivosUsuario" EntityType="Self.Tbl_ArchivosUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_AsistenciaTransferencias" EntityType="Self.Tbl_AsistenciaTransferencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Calificaciones" EntityType="Self.Tbl_Calificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Discapacidades" EntityType="Self.Tbl_Discapacidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Especializacion" EntityType="Self.Tbl_Especializacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_EspecializacionesUsuario" EntityType="Self.Tbl_EspecializacionesUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Estados" EntityType="Self.Tbl_Estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_HistoricoNotificaciones" EntityType="Self.Tbl_HistoricoNotificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_InformacionBasicaUsuario" EntityType="Self.Tbl_InformacionBasicaUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Inscripciones" EntityType="Self.Tbl_Inscripciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Sedes" EntityType="Self.Tbl_Sedes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Transferencias" EntityType="Self.Tbl_Transferencias" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOBASICAUSUARIO_DISCAPACIDADES" Association="Self.FK_INFOBASICAUSUARIO_DISCAPACIDADES">
+            <End Role="Tbl_Discapacidades" EntitySet="Tbl_Discapacidades" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" Association="Self.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_ArchivosUsuario" EntitySet="Tbl_ArchivosUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario" Association="Self.FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_Sedes" Association="Self.FK_Tbl_AsistenciaTransferencias_Tbl_Sedes">
+            <End Role="Tbl_Sedes" EntitySet="Tbl_Sedes" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias" Association="Self.FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario" Association="Self.FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_Calificaciones" EntitySet="Tbl_Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Calificaciones_Tbl_Transferencias1" Association="Self.FK_Tbl_Calificaciones_Tbl_Transferencias1">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_Calificaciones" EntitySet="Tbl_Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion" Association="Self.FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion">
+            <End Role="Tbl_Especializacion" EntitySet="Tbl_Especializacion" />
+            <End Role="Tbl_EspecializacionesUsuario" EntitySet="Tbl_EspecializacionesUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario" Association="Self.FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_EspecializacionesUsuario" EntitySet="Tbl_EspecializacionesUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_AspNetUsers1" Association="Self.FK_Tbl_InformacionBasicaUsuario_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Estados" Association="Self.FK_Tbl_InformacionBasicaUsuario_Tbl_Estados">
+            <End Role="Tbl_Estados" EntitySet="Tbl_Estados" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles" Association="Self.FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles">
+            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" Association="Self.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_Inscripciones" EntitySet="Tbl_Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inscripciones_Tbl_Transferencias1" Association="Self.FK_Tbl_Inscripciones_Tbl_Transferencias1">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_Inscripciones" EntitySet="Tbl_Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Especializacion" Association="Self.FK_Tbl_Transferencias_Tbl_Especializacion">
+            <End Role="Tbl_Especializacion" EntitySet="Tbl_Especializacion" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Estados" Association="Self.FK_Tbl_Transferencias_Tbl_Estados">
+            <End Role="Tbl_Estados" EntitySet="Tbl_Estados" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Sedes" Association="Self.FK_Tbl_Transferencias_Tbl_Sedes">
+            <End Role="Tbl_Sedes" EntitySet="Tbl_Sedes" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="siciModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="siciEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="siciModel2.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="siciModel2.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="siciModel2.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="siciModel2.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="siciModel2.AspNetUsers" />
+          <EntitySet Name="sysdiagrams" EntityType="siciModel2.sysdiagrams" />
+          <EntitySet Name="Tbl_Anuncios" EntityType="siciModel2.Tbl_Anuncios" />
+          <EntitySet Name="Tbl_AsistenciaTransferencias" EntityType="siciModel2.Tbl_AsistenciaTransferencias" />
+          <EntitySet Name="Tbl_Calificaciones" EntityType="siciModel2.Tbl_Calificaciones" />
+          <EntitySet Name="Tbl_Discapacidades" EntityType="siciModel2.Tbl_Discapacidades" />
+          <EntitySet Name="Tbl_Especializacion" EntityType="siciModel2.Tbl_Especializacion" />
+          <EntitySet Name="Tbl_EspecializacionesUsuario" EntityType="siciModel2.Tbl_EspecializacionesUsuario" />
+          <EntitySet Name="Tbl_Estados" EntityType="siciModel2.Tbl_Estados" />
+          <EntitySet Name="Tbl_HistoricoNotificaciones" EntityType="siciModel2.Tbl_HistoricoNotificaciones" />
+          <EntitySet Name="Tbl_Inscripciones" EntityType="siciModel2.Tbl_Inscripciones" />
+          <EntitySet Name="Tbl_Perfiles" EntityType="siciModel2.Tbl_Perfiles" />
+          <EntitySet Name="Tbl_Sedes" EntityType="siciModel2.Tbl_Sedes" />
+          <EntitySet Name="Tbl_Transferencias" EntityType="siciModel2.Tbl_Transferencias" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="siciModel2.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="siciModel2.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_Sedes" Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Sedes">
+            <End Role="Tbl_Sedes" EntitySet="Tbl_Sedes" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias" Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Calificaciones_Tbl_Transferencias1" Association="siciModel2.FK_Tbl_Calificaciones_Tbl_Transferencias1">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_Calificaciones" EntitySet="Tbl_Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion" Association="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion">
+            <End Role="Tbl_Especializacion" EntitySet="Tbl_Especializacion" />
+            <End Role="Tbl_EspecializacionesUsuario" EntitySet="Tbl_EspecializacionesUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Especializacion" Association="siciModel2.FK_Tbl_Transferencias_Tbl_Especializacion">
+            <End Role="Tbl_Especializacion" EntitySet="Tbl_Especializacion" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Estados" Association="siciModel2.FK_Tbl_Transferencias_Tbl_Estados">
+            <End Role="Tbl_Estados" EntitySet="Tbl_Estados" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inscripciones_Tbl_Transferencias1" Association="siciModel2.FK_Tbl_Inscripciones_Tbl_Transferencias1">
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+            <End Role="Tbl_Inscripciones" EntitySet="Tbl_Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Transferencias_Tbl_Sedes" Association="siciModel2.FK_Tbl_Transferencias_Tbl_Sedes">
+            <End Role="Tbl_Sedes" EntitySet="Tbl_Sedes" />
+            <End Role="Tbl_Transferencias" EntitySet="Tbl_Transferencias" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="siciModel2.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_InformacionBasicaUsuario" EntityType="siciModel2.Tbl_InformacionBasicaUsuario" />
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_AspNetUsers1" Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario" Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_AsistenciaTransferencias" EntitySet="Tbl_AsistenciaTransferencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario" Association="siciModel2.FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_Calificaciones" EntitySet="Tbl_Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INFOBASICAUSUARIO_DISCAPACIDADES" Association="siciModel2.FK_INFOBASICAUSUARIO_DISCAPACIDADES">
+            <End Role="Tbl_Discapacidades" EntitySet="Tbl_Discapacidades" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario" Association="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_EspecializacionesUsuario" EntitySet="Tbl_EspecializacionesUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Estados" Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Estados">
+            <End Role="Tbl_Estados" EntitySet="Tbl_Estados" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles" Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles">
+            <End Role="Tbl_Perfiles" EntitySet="Tbl_Perfiles" />
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" Association="siciModel2.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_Inscripciones" EntitySet="Tbl_Inscripciones" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_ArchivosUsuario" EntityType="siciModel2.Tbl_ArchivosUsuario" />
+          <AssociationSet Name="FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" Association="siciModel2.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario">
+            <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
+            <End Role="Tbl_ArchivosUsuario" EntitySet="Tbl_ArchivosUsuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="siciModel2.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="siciModel2.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="siciModel2.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="siciModel2.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="siciModel2.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="siciModel2.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_AspNetUsers1" FromRole="AspNetUsers" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Anuncios">
+          <Key>
+            <PropertyRef Name="IdAnuncio" />
+          </Key>
+          <Property Name="IdAnuncio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutorAnuncio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TituloAnuncio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionAnuncio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacionAnuncio" Type="DateTime" Precision="3" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_AsistenciaTransferencias">
+          <Key>
+            <PropertyRef Name="IdAsistenciaTransferencia" />
+          </Key>
+          <Property Name="IdAsistenciaTransferencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTransferencia" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdSede" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Sedes" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Sedes" FromRole="Tbl_AsistenciaTransferencias" ToRole="Tbl_Sedes" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias" FromRole="Tbl_AsistenciaTransferencias" ToRole="Tbl_Transferencias" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario" FromRole="Tbl_AsistenciaTransferencias" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Calificaciones">
+          <Key>
+            <PropertyRef Name="IdCalificacion" />
+          </Key>
+          <Property Name="IdCalificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTransferencia" Type="Int32" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Calificacion" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_Calificaciones_Tbl_Transferencias1" FromRole="Tbl_Calificaciones" ToRole="Tbl_Transferencias" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario" FromRole="Tbl_Calificaciones" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Discapacidades">
+          <Key>
+            <PropertyRef Name="IdDiscapacidad" />
+          </Key>
+          <Property Name="IdDiscapacidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_INFOBASICAUSUARIO_DISCAPACIDADES" FromRole="Tbl_Discapacidades" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Especializacion">
+          <Key>
+            <PropertyRef Name="IdEspecializacion" />
+          </Key>
+          <Property Name="IdEspecializacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionEspecializacion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_EspecializacionesUsuario" Relationship="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion" FromRole="Tbl_Especializacion" ToRole="Tbl_EspecializacionesUsuario" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Especializacion" FromRole="Tbl_Especializacion" ToRole="Tbl_Transferencias" />
+        </EntityType>
+        <EntityType Name="Tbl_EspecializacionesUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdEspecializacion" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdEspecializacion" Type="Int32" Nullable="false" />
+          <Property Name="nidreg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Tbl_Especializacion" Relationship="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion" FromRole="Tbl_EspecializacionesUsuario" ToRole="Tbl_Especializacion" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario" FromRole="Tbl_EspecializacionesUsuario" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Estados">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Estados" FromRole="Tbl_Estados" ToRole="Tbl_Transferencias" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Estados" FromRole="Tbl_Estados" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_HistoricoNotificaciones">
+          <Key>
+            <PropertyRef Name="IdTransferencia" />
+          </Key>
+          <Property Name="IdTransferencia" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Inscripciones">
+          <Key>
+            <PropertyRef Name="IdInscripcion" />
+          </Key>
+          <Property Name="IdInscripcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IdTransferencia" Type="Int32" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_Inscripciones_Tbl_Transferencias1" FromRole="Tbl_Inscripciones" ToRole="Tbl_Transferencias" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" FromRole="Tbl_Inscripciones" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Perfiles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+          </Key>
+          <Property Name="IdPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles" FromRole="Tbl_Perfiles" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <EntityType Name="Tbl_Sedes">
+          <Key>
+            <PropertyRef Name="IdSede" />
+          </Key>
+          <Property Name="IdSede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreSede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_AsistenciaTransferencias" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Sedes" FromRole="Tbl_Sedes" ToRole="Tbl_AsistenciaTransferencias" />
+          <NavigationProperty Name="Tbl_Transferencias" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Sedes" FromRole="Tbl_Sedes" ToRole="Tbl_Transferencias" />
+        </EntityType>
+        <EntityType Name="Tbl_Transferencias">
+          <Key>
+            <PropertyRef Name="IdTransferencia" />
+          </Key>
+          <Property Name="NombreTransferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdTransferencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CuposIniciales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CuposActuales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Precision="3" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="EstadoTransferencia" Type="Int32" Nullable="false" />
+          <Property Name="IdEspecializacion" Type="Int32" Nullable="false" />
+          <Property Name="IdSede" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tbl_AsistenciaTransferencias" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias" FromRole="Tbl_Transferencias" ToRole="Tbl_AsistenciaTransferencias" />
+          <NavigationProperty Name="Tbl_Calificaciones" Relationship="siciModel2.FK_Tbl_Calificaciones_Tbl_Transferencias1" FromRole="Tbl_Transferencias" ToRole="Tbl_Calificaciones" />
+          <NavigationProperty Name="Tbl_Especializacion" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Especializacion" FromRole="Tbl_Transferencias" ToRole="Tbl_Especializacion" />
+          <NavigationProperty Name="Tbl_Estados" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Estados" FromRole="Tbl_Transferencias" ToRole="Tbl_Estados" />
+          <NavigationProperty Name="Tbl_Inscripciones" Relationship="siciModel2.FK_Tbl_Inscripciones_Tbl_Transferencias1" FromRole="Tbl_Transferencias" ToRole="Tbl_Inscripciones" />
+          <NavigationProperty Name="Tbl_Sedes" Relationship="siciModel2.FK_Tbl_Transferencias_Tbl_Sedes" FromRole="Tbl_Transferencias" ToRole="Tbl_Sedes" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="siciModel2.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="siciModel2.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="siciModel2.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="siciModel2.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_Sedes">
+          <End Type="siciModel2.Tbl_Sedes" Role="Tbl_Sedes" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_AsistenciaTransferencias" Role="Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Sedes">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="IdSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias">
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_AsistenciaTransferencias" Role="Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Calificaciones_Tbl_Transferencias1">
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_Calificaciones" Role="Tbl_Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_Calificaciones">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion">
+          <End Type="siciModel2.Tbl_Especializacion" Role="Tbl_Especializacion" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_EspecializacionesUsuario" Role="Tbl_EspecializacionesUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Especializacion">
+              <PropertyRef Name="IdEspecializacion" />
+            </Principal>
+            <Dependent Role="Tbl_EspecializacionesUsuario">
+              <PropertyRef Name="IdEspecializacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Especializacion">
+          <End Type="siciModel2.Tbl_Especializacion" Role="Tbl_Especializacion" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Especializacion">
+              <PropertyRef Name="IdEspecializacion" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="IdEspecializacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Estados">
+          <End Type="siciModel2.Tbl_Estados" Role="Tbl_Estados" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="EstadoTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inscripciones_Tbl_Transferencias1">
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_Inscripciones" Role="Tbl_Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Transferencias">
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="Tbl_Inscripciones">
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Transferencias_Tbl_Sedes">
+          <End Type="siciModel2.Tbl_Sedes" Role="Tbl_Sedes" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_Transferencias" Role="Tbl_Transferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Sedes">
+              <PropertyRef Name="IdSede" />
+            </Principal>
+            <Dependent Role="Tbl_Transferencias">
+              <PropertyRef Name="IdSede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="siciModel2.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+          <End Type="siciModel2.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Tbl_InformacionBasicaUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Discapacidad" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="IdPerfil" Type="Int32" />
+          <NavigationProperty Name="AspNetUsers" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_AspNetUsers1" FromRole="Tbl_InformacionBasicaUsuario" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Tbl_AsistenciaTransferencias" Relationship="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_AsistenciaTransferencias" />
+          <NavigationProperty Name="Tbl_Calificaciones" Relationship="siciModel2.FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_Calificaciones" />
+          <NavigationProperty Name="Tbl_Discapacidades" Relationship="siciModel2.FK_INFOBASICAUSUARIO_DISCAPACIDADES" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_Discapacidades" />
+          <NavigationProperty Name="Tbl_EspecializacionesUsuario" Relationship="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_EspecializacionesUsuario" />
+          <NavigationProperty Name="Tbl_Estados" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Estados" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_Estados" />
+          <NavigationProperty Name="Tbl_Perfiles" Relationship="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_Perfiles" />
+          <NavigationProperty Name="Tbl_Inscripciones" Relationship="siciModel2.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_Inscripciones" />
+          <NavigationProperty Name="Tbl_ArchivosUsuario" Relationship="siciModel2.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" FromRole="Tbl_InformacionBasicaUsuario" ToRole="Tbl_ArchivosUsuario" />
+        </EntityType>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_AspNetUsers1">
+          <End Type="siciModel2.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario">
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_AsistenciaTransferencias" Role="Tbl_AsistenciaTransferencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_AsistenciaTransferencias">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario">
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_Calificaciones" Role="Tbl_Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Calificaciones">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INFOBASICAUSUARIO_DISCAPACIDADES">
+          <End Type="siciModel2.Tbl_Discapacidades" Role="Tbl_Discapacidades" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Discapacidades">
+              <PropertyRef Name="IdDiscapacidad" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Discapacidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario">
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="1" />
+          <End Type="siciModel2.Tbl_EspecializacionesUsuario" Role="Tbl_EspecializacionesUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_EspecializacionesUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Estados">
+          <End Type="siciModel2.Tbl_Estados" Role="Tbl_Estados" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles">
+          <End Type="siciModel2.Tbl_Perfiles" Role="Tbl_Perfiles" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Perfiles">
+              <PropertyRef Name="IdPerfil" />
+            </Principal>
+            <Dependent Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario">
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_Inscripciones" Role="Tbl_Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_Inscripciones">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_ArchivosUsuario">
+          <Key>
+            <PropertyRef Name="idRegistro" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContentType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Tbl_InformacionBasicaUsuario" Relationship="siciModel2.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" FromRole="Tbl_ArchivosUsuario" ToRole="Tbl_InformacionBasicaUsuario" />
+        </EntityType>
+        <Association Name="FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario">
+          <End Type="siciModel2.Tbl_InformacionBasicaUsuario" Role="Tbl_InformacionBasicaUsuario" Multiplicity="0..1" />
+          <End Type="siciModel2.Tbl_ArchivosUsuario" Role="Tbl_ArchivosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_InformacionBasicaUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tbl_ArchivosUsuario">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="siciModel2StoreContainer" CdmEntityContainer="siciEntities2">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="siciModel2.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="siciModel2.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="siciModel2.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="siciModel2.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="siciModel2.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="siciModel2.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Anuncios">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Anuncios">
+              <MappingFragment StoreEntitySet="Tbl_Anuncios">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="FechaCreacionAnuncio" ColumnName="FechaCreacionAnuncio" />
+                <ScalarProperty Name="DescripcionAnuncio" ColumnName="DescripcionAnuncio" />
+                <ScalarProperty Name="TituloAnuncio" ColumnName="TituloAnuncio" />
+                <ScalarProperty Name="AutorAnuncio" ColumnName="AutorAnuncio" />
+                <ScalarProperty Name="IdAnuncio" ColumnName="IdAnuncio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_AsistenciaTransferencias">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_AsistenciaTransferencias">
+              <MappingFragment StoreEntitySet="Tbl_AsistenciaTransferencias">
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdAsistenciaTransferencia" ColumnName="IdAsistenciaTransferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Calificaciones">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Calificaciones">
+              <MappingFragment StoreEntitySet="Tbl_Calificaciones">
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdCalificacion" ColumnName="IdCalificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Discapacidades">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Discapacidades">
+              <MappingFragment StoreEntitySet="Tbl_Discapacidades">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdDiscapacidad" ColumnName="IdDiscapacidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Especializacion">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Especializacion">
+              <MappingFragment StoreEntitySet="Tbl_Especializacion">
+                <ScalarProperty Name="DescripcionEspecializacion" ColumnName="DescripcionEspecializacion" />
+                <ScalarProperty Name="IdEspecializacion" ColumnName="IdEspecializacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_EspecializacionesUsuario">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_EspecializacionesUsuario">
+              <MappingFragment StoreEntitySet="Tbl_EspecializacionesUsuario">
+                <ScalarProperty Name="nidreg" ColumnName="nidreg" />
+                <ScalarProperty Name="IdEspecializacion" ColumnName="IdEspecializacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Estados">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Estados">
+              <MappingFragment StoreEntitySet="Tbl_Estados">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_HistoricoNotificaciones">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_HistoricoNotificaciones">
+              <MappingFragment StoreEntitySet="Tbl_HistoricoNotificaciones">
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Inscripciones">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Inscripciones">
+              <MappingFragment StoreEntitySet="Tbl_Inscripciones">
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdInscripcion" ColumnName="IdInscripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Perfiles">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Perfiles">
+              <MappingFragment StoreEntitySet="Tbl_Perfiles">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Sedes">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Sedes">
+              <MappingFragment StoreEntitySet="Tbl_Sedes">
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Transferencias">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_Transferencias">
+              <MappingFragment StoreEntitySet="Tbl_Transferencias">
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="IdEspecializacion" ColumnName="IdEspecializacion" />
+                <ScalarProperty Name="EstadoTransferencia" ColumnName="EstadoTransferencia" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="CuposActuales" ColumnName="CuposActuales" />
+                <ScalarProperty Name="CuposIniciales" ColumnName="CuposIniciales" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="NombreTransferencia" ColumnName="NombreTransferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="siciModel2.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Tbl_InformacionBasicaUsuario">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_InformacionBasicaUsuario">
+              <MappingFragment StoreEntitySet="Tbl_InformacionBasicaUsuario">
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Discapacidad" ColumnName="Discapacidad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_ArchivosUsuario">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_ArchivosUsuario">
+              <MappingFragment StoreEntitySet="Tbl_ArchivosUsuario">
+                <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

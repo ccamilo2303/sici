@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9aac627835b748dba2853bc90a534620" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="siciModel2.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="siciModel2.AspNetRoles" Width="1.5" PointX="1.5" PointY="3.5" />
+        <EntityTypeShape EntityType="siciModel2.AspNetUserClaims" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="siciModel2.AspNetUserLogins" Width="1.5" PointX="6" PointY="15.75" />
+        <EntityTypeShape EntityType="siciModel2.AspNetUsers" Width="1.5" PointX="3.75" PointY="2.25" />
+        <EntityTypeShape EntityType="siciModel2.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Anuncios" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_AsistenciaTransferencias" Width="1.5" PointX="8.25" PointY="8.375" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Calificaciones" Width="1.5" PointX="11.25" PointY="8.5" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Discapacidades" Width="1.5" PointX="3.75" PointY="15.375" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Especializacion" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_EspecializacionesUsuario" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Estados" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_HistoricoNotificaciones" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Inscripciones" Width="1.5" PointX="8.25" PointY="11.625" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Perfiles" Width="1.5" PointX="3.75" PointY="13.125" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Sedes" Width="1.5" PointX="6" PointY="12.625" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_Transferencias" Width="1.5" PointX="3" PointY="7.5" />
+        <AssociationConnector Association="siciModel2.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="siciModel2.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Sedes" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_Transferencias" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Calificaciones_Tbl_Transferencias1" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_Especializacion" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Transferencias_Tbl_Especializacion" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Transferencias_Tbl_Estados" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Inscripciones_Tbl_Transferencias1" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Transferencias_Tbl_Sedes" />
+        <AssociationConnector Association="siciModel2.AspNetUserRoles" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_InformacionBasicaUsuario" Width="1.5" PointX="6" PointY="7.625" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_AspNetUsers1" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_AsistenciaTransferencias_Tbl_InformacionBasicaUsuario" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Calificaciones_Tbl_InformacionBasicaUsuario" />
+        <AssociationConnector Association="siciModel2.FK_INFOBASICAUSUARIO_DISCAPACIDADES" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_EspecializacionesUsuario_Tbl_InformacionBasicaUsuario" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Estados" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_InformacionBasicaUsuario_Tbl_Perfiles" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_ArchivosUsuario" Width="1.5" PointX="8.25" PointY="14.625" />
+        <AssociationConnector Association="siciModel2.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

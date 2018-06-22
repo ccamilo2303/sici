@@ -1,0 +1,43 @@
+﻿@model SICI.Modelo.Tbl_EspecializacionesUsuario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_EspecializacionesUsuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nidreg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nidreg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Especializacion.DescripcionEspecializacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Especializacion.DescripcionEspecializacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_InformacionBasicaUsuario.NombreCompleto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

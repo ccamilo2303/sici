@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("enviarNotificaciones", "EnviarNotificacion"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Enviar notificaciones</h4>
+        <h5>Al dar clic en el botón, se enviará una notificación a todos los usuarios interesados en la oferta</h5>
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Enviar Notificaciones" class="btn btn-default" />
+            </div>
+        </div>
+        
+        </div>
+       }
+

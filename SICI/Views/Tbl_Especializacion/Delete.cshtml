@@ -1,0 +1,33 @@
+﻿@model SICI.Modelo.Tbl_Especializacion
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tbl_Especializacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionEspecializacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionEspecializacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <button type="button" class="btn btn-danger" onclick="location.href= '@Url.Action("Index")' ">Cancelar</button>
+        </div>
+    }
+</div>
