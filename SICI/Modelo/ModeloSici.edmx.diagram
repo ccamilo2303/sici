@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9aac627835b748dba2853bc90a534620" Name="Diagram1" ZoomLevel="101">
+      <Diagram DiagramId="9aac627835b748dba2853bc90a534620" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="siciModel2.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="siciModel2.AspNetRoles" Width="1.5" PointX="1.5" PointY="3.5" />
         <EntityTypeShape EntityType="siciModel2.AspNetUserClaims" Width="1.5" PointX="6" PointY="1" />
@@ -45,6 +45,7 @@
         <AssociationConnector Association="siciModel2.FK_Tbl_Inscripciones_Tbl_InformacionBasicaUsuario" />
         <EntityTypeShape EntityType="siciModel2.Tbl_ArchivosUsuario" Width="1.5" PointX="8.25" PointY="14.625" />
         <AssociationConnector Association="siciModel2.FK_Tbl_ArchivosUsuario_Tbl_InformacionBasicaUsuario" />
+        <EntityTypeShape EntityType="siciModel2.Tbl_reporteInformacionPorUsuario" Width="1.5" PointX="10.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

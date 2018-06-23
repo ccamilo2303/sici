@@ -116,5 +116,25 @@ namespace SICI.Controllers
         }
 
 
+        public void generarReporteProcedimientoAlmacenado()
+        {
+            siciEntities2 db2 = new siciEntities2();
+            var grid = new GridView();
+
+            db2.PROC_GENERARREPORTE();
+
+            grid.DataSource = (from m in db2.Tbl_reporteInformacionPorUsuario select m).ToList();
+            grid.DataBind();
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", "attachment; filename=ReporteAsistencia.xls");
+            Response.ContentType = "application/excel";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htmlTextwrite = new HtmlTextWriter(sw);
+            grid.RenderControl(htmlTextwrite);
+            Response.Write(sw.ToString());
+            Response.End();
+        }
+
+
     }
 }

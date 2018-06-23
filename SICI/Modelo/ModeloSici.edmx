@@ -180,6 +180,15 @@
           <Property Name="IdPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Tbl_reporteInformacionPorUsuario">
+          <Key>
+            <PropertyRef Name="nidreg" />
+          </Key>
+          <Property Name="cedula" Type="varchar" MaxLength="50" />
+          <Property Name="nombreTransferencia" Type="varchar" MaxLength="100" />
+          <Property Name="especialidad" Type="varchar" MaxLength="50" />
+          <Property Name="nidreg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tbl_Sedes">
           <Key>
             <PropertyRef Name="IdSede" />
@@ -464,6 +473,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PROC_GENERARREPORTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="siciModel2StoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -484,6 +494,7 @@
           <EntitySet Name="Tbl_InformacionBasicaUsuario" EntityType="Self.Tbl_InformacionBasicaUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Inscripciones" EntityType="Self.Tbl_Inscripciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Perfiles" EntityType="Self.Tbl_Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_reporteInformacionPorUsuario" EntityType="Self.Tbl_reporteInformacionPorUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Sedes" EntityType="Self.Tbl_Sedes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Transferencias" EntityType="Self.Tbl_Transferencias" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -676,6 +687,9 @@
             <End Role="Tbl_InformacionBasicaUsuario" EntitySet="Tbl_InformacionBasicaUsuario" />
             <End Role="Tbl_ArchivosUsuario" EntitySet="Tbl_ArchivosUsuario" />
           </AssociationSet>
+          <EntitySet Name="Tbl_reporteInformacionPorUsuario" EntityType="siciModel2.Tbl_reporteInformacionPorUsuario" />
+          <FunctionImport Name="PROC_GENERARREPORTE" />
+          <FunctionImport Name="PROC_GENERARREPORTEMVC" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1144,6 +1158,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tbl_reporteInformacionPorUsuario">
+          <Key>
+            <PropertyRef Name="nidreg" />
+          </Key>
+          <Property Name="cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreTransferencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nidreg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1365,6 +1388,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_reporteInformacionPorUsuario">
+            <EntityTypeMapping TypeName="siciModel2.Tbl_reporteInformacionPorUsuario">
+              <MappingFragment StoreEntitySet="Tbl_reporteInformacionPorUsuario">
+                <ScalarProperty Name="nidreg" ColumnName="nidreg" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="nombreTransferencia" ColumnName="nombreTransferencia" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PROC_GENERARREPORTE" FunctionName="siciModel2.Store.PROC_GENERARREPORTE" />
+          <FunctionImportMapping FunctionImportName="PROC_GENERARREPORTEMVC" FunctionName="siciModel2.Store.PROC_GENERARREPORTE" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'D:\Repositorios\SICIV3\SICI\Modelo\ModeloSici.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'D:\Repositorios\siciRepo\sici\SICI\Modelo\ModeloSici.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

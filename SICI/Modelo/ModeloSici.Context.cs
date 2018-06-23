@@ -12,6 +12,8 @@ namespace SICI.Modelo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class siciEntities2 : DbContext
     {
@@ -45,5 +47,16 @@ namespace SICI.Modelo
         public virtual DbSet<Tbl_Transferencias> Tbl_Transferencias { get; set; }
         public virtual DbSet<Tbl_InformacionBasicaUsuario> Tbl_InformacionBasicaUsuario { get; set; }
         public virtual DbSet<Tbl_ArchivosUsuario> Tbl_ArchivosUsuario { get; set; }
+        public virtual DbSet<Tbl_reporteInformacionPorUsuario> Tbl_reporteInformacionPorUsuario { get; set; }
+    
+        public virtual int PROC_GENERARREPORTE()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_GENERARREPORTE");
+        }
+    
+        public virtual int PROC_GENERARREPORTEMVC()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_GENERARREPORTEMVC");
+        }
     }
 }

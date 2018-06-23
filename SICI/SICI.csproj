@@ -263,6 +263,9 @@
     <Compile Include="Modelo\Tbl_Perfiles.cs">
       <DependentUpon>ModeloSici.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Tbl_reporteInformacionPorUsuario.cs">
+      <DependentUpon>ModeloSici.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Tbl_Sedes.cs">
       <DependentUpon>ModeloSici.tt</DependentUpon>
     </Compile>
@@ -487,6 +490,7 @@
       <DependentUpon>ModeloSici.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
