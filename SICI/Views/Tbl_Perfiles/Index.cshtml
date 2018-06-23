@@ -8,12 +8,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nuevo perfil", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            Descripcion
         </th>
         <th></th>
     </tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPerfil }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPerfil }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPerfil })
+            <a href="@Url.Action("Edit", new { id=item.IdPerfil })" class="btn btn-mini btn-info icon-Edit glyphicon glyphicon-pencil"> Editar</a>
+            <a href="@Url.Action("Details", new { id=item.IdPerfil})" class="btn btn-mini btn-success icon-Edit glyphicon glyphicon-eye-open"> Detalles</a>
+            <a href="@Url.Action("Delete", new { id=item.IdPerfil })" class="btn btn-mini btn-danger icon-Edit glyphicon glyphicon-trash"> Eliminar</a>
         </td>
     </tr>
 }

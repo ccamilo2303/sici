@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SICI.Modelo.Tbl_Transferencias>
+
+@{
+    ViewBag.Title = "IndexEsp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Transferencias Disponibles</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre Transferencia
+        </th>
+        <th>
+            Descripción
+        </th>
+        
+        <th>
+            Fecha Inicio
+        </th>
+        <th>
+            Fecha Fin
+        </th>
+        <th>
+            Sede
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreTransferencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaFin)
+        </td>
+   
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Tbl_Sedes.NombreSede)
+        </td>
+    </tr>
+}
+
+</table>

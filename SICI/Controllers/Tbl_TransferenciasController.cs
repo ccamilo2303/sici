@@ -21,6 +21,12 @@ namespace SICI.Controllers
             return View(tbl_Transferencias.ToList());
         }
 
+        public ActionResult IndexEsp()
+        {
+            var tbl_Transferencias = db.Tbl_Transferencias.Include(t => t.Tbl_Especializacion).Include(t => t.Tbl_Estados).Include(t => t.Tbl_Sedes);
+            return View(tbl_Transferencias.ToList());
+        }
+
         // GET: Tbl_Transferencias/Details/5
         public ActionResult Details(int? id)
         {

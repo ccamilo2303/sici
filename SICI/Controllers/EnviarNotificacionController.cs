@@ -32,7 +32,7 @@ namespace SICI.Controllers
                           " ON TI.id = TE.id " +
                           " LEFT JOIN Tbl_HistoricoNotificaciones TH " +
                           " ON TT.IdTransferencia = TH.IdTransferencia " +
-                          " WHERE TH.IdTransferencia IS NULL ";
+                          " WHERE TH.IdTransferencia IS NULL AND TI.Cedula IS NOT NULL ";
 
             String sqlInsert = "INSERT INTO Tbl_HistoricoNotificaciones " +
                                 " SELECT CAST(TT.IdTransferencia AS VARCHAR)IdTransferencia " +
@@ -43,7 +43,7 @@ namespace SICI.Controllers
                                 " ON TI.id = TE.id " +
                                 "   LEFT JOIN Tbl_HistoricoNotificaciones TH " +
                                 "   ON TT.IdTransferencia = TH.IdTransferencia " +
-                                "   WHERE TH.IdTransferencia IS NULL " +
+                                "   WHERE TH.IdTransferencia IS NULL AND TI.Cedula IS NOT NULL" +
                                   " GROUP BY TT.IdTransferencia; ";
             
 
@@ -57,13 +57,13 @@ namespace SICI.Controllers
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("ccamilo2303@gmail.com", "1024579400");
             SmtpServer.EnableSsl = true;
-
-            for (int a = 0; a < data.Count(); a++)
+                
+                for (int a = 0; a < data.Count(); a++)
             {
                 Notificacion x = data.ElementAt(a);
                 mail.To.Add(x.Email);
                 mail.Subject = "Nueva oferta disponible!";
-                mail.Body = "Ha recibido esta notificación porque se publicó la siguiente oferta de su interes: "+x.NombreTransferencia+ ", la puede consultar en este enlace: http://localhost:57005/Tbl_Inscripciones/CreateEspecial?cedula="+x.Cedula+"&idTransferencia=" + x.IdTransferencia;
+                mail.Body = "Ha recibido esta notificación porque se publicó la siguiente oferta de su interes: "+x.NombreTransferencia+ ", la puede consultar en este enlace: http://localhost:57005/Tbl_Inscripciones/CreateEspecial?cedula=" + x.Cedula+"&idTransferencia=" + x.IdTransferencia;
 
                 SmtpServer.Send(mail);
 

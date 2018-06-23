@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Nuevo anuncio", "Create")
@@ -19,13 +18,10 @@
             Anuncio
         </th>
         <th>
-            Descripcion anuncio
+            Descripción anuncio
         </th>
         <th>
-            Fecha creacion anuncio
-        </th>
-        <th>
-            Imagen
+            Fecha creación anuncio
         </th>
         <th></th>
     </tr>
@@ -33,24 +29,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            Autor
+             @Html.DisplayFor(modelItem => item.AutorAnuncio);
         </td>
         <td>
-            Anuncio
+            @Html.DisplayFor(modelItem => item.TituloAnuncio);
         </td>
         <td>
-            DescripcionAnuncio
+            @Html.DisplayFor(modelItem => item.DescripcionAnuncio);
         </td>
         <td>
-            Fecha creacion anuncio
+            @Html.DisplayFor(modelItem => item.FechaCreacionAnuncio);
         </td>
+        
         <td>
-            Imagen
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAnuncio }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAnuncio }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAnuncio })
+            <a href="@Url.Action("Edit", new { id=item.IdAnuncio })" class="btn btn-mini btn-info icon-Edit glyphicon glyphicon-pencil"> Editar</a>
+            <a href="@Url.Action("Details", new { id=item.IdAnuncio})" class="btn btn-mini btn-success icon-Edit glyphicon glyphicon-eye-open"> Detalles</a>
+            <a href="@Url.Action("Delete", new { id=item.IdAnuncio })" class="btn btn-mini btn-danger icon-Edit glyphicon glyphicon-trash"> Eliminar</a>
         </td>
     </tr>
 }

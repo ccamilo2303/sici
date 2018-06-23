@@ -259,19 +259,23 @@
                         {
 
                             <li>
-                                <a href="../Tbl_Inscripciones"><i class="fa fa-pencil-square-o fa-fw"></i> Inscribir a transferencia </a>
+                                <a href="/Tbl_Transferencias/IndexEsp"><i class="fa fa-pencil-square-o fa-fw"></i> Consultar Transferencias </a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_InformacionBasicaUsuario/EditEspecial"><i class="fa fa-male fa-fw"></i> Información Usuarios</a>
+                                <a href="/Tbl_Inscripciones"><i class="fa fa-pencil-square-o fa-fw"></i> Inscribir a transferencia </a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_EspecializacionesUsuario"><i class="fa fa-star-o fa-fw"></i> Parametrizar especializaciones por usuario</a>
+                                <a href="/Tbl_InformacionBasicaUsuario/EditEspecial"><i class="fa fa-male fa-fw"></i> Información Usuario</a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
+                                <a href="/Tbl_EspecializacionesUsuario"><i class="fa fa-star-o fa-fw"></i> Parametrizar especializaciones por usuario</a>
+                            </li>
+
+                            <li>
+                                <a href="/Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
                             </li>
 
 
@@ -280,35 +284,35 @@
                         @if (Session["perfil"].Equals("administrativo"))
                         {
                             <li>
-                                <a href="../Tbl_Anuncios"><i class="fa fa-bullhorn fa-fw"></i> Crear Anuncios</a>
+                                <a href="/Tbl_Anuncios"><i class="fa fa-bullhorn fa-fw"></i> Crear Anuncios</a>
                             </li>
                             <li>
-                                <a href="../Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
+                                <a href="/Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
                             </li>
                             <li>
-                                <a href="../Tbl_InformacionBasicaUsuario"><i class="fa fa-male fa-fw"></i> Información Usuarios</a>
-                            </li>
-
-                            <li>
-                                <a href="../Tbl_Sedes"><i class="fa fa-university fa-fw"></i> Parametrizar sedes</a>
+                                <a href="/Tbl_InformacionBasicaUsuario"><i class="fa fa-male fa-fw"></i> Información Usuarios</a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_Especializacion"><i class="fa fa-graduation-cap fa-fw"></i> Parametrizar especializaciones</a>
-                            </li>
-                            
-                            <li>
-                                <a href="../Tbl_Transferencias"><i class="fa fa-clipboard fa-fw"></i> Registrar transferencias </a>
-                            </li>
-                            <li>
-                                <a href="../Account/Register"><i class="fa fa-clipboard fa-fw"></i> Registrar Usuario </a>
+                                <a href="/Tbl_Sedes"><i class="fa fa-university fa-fw"></i> Parametrizar sedes</a>
                             </li>
 
                             <li>
-                                <a href="../Reportes"><i class="fa fa-bullhorn fa-fw"></i> Reportes</a>
+                                <a href="/Tbl_Especializacion"><i class="fa fa-graduation-cap fa-fw"></i> Parametrizar especializaciones</a>
+                            </li>
+
+                            <li>
+                                <a href="/Tbl_Transferencias"><i class="fa fa-clipboard fa-fw"></i> Registrar transferencias </a>
                             </li>
                             <li>
-                                <a href="../EnviarNotificacion"><i class="fa fa-bullhorn fa-fw"></i> Enviar Notificaciones</a>
+                                <a href="/Account/Register"><i class="fa fa-user-plus fa-fw"></i> Registrar Usuario </a>
+                            </li>
+
+                            <li>
+                                <a href="/Reportes"><i class="fa fa-archive fa-fw"></i> Reportes</a>
+                            </li>
+                            <li>
+                                <a href="/EnviarNotificacion"><i class="fa fa-bullhorn fa-fw"></i> Enviar Notificaciones</a>
                             </li>
                         }
 
@@ -317,61 +321,61 @@
                         {
 
                             <li>
-                                <a href="../Tbl_Anuncios"><i class="fa fa-bullhorn fa-fw"></i> Crear Anuncios</a>
+                                <a href="/Tbl_Anuncios"><i class="fa fa-bullhorn fa-fw"></i> Crear Anuncios</a>
                             </li>
                             <li>
-                                <a href="../Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
+                                <a href="/Tbl_ArchivosUsuario"><i class="fa fa-star-o fa-fw"></i> Cargar certificaciones</a>
                             </li>
 
                             <li>
-                                <a href="../EnviarNotificacion"><i class="fa fa-bullhorn fa-fw"></i> Enviar Notificaciones</a>
+                                <a href="/EnviarNotificacion"><i class="fa fa-commenting-o fa-fw"></i> Enviar Notificaciones</a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_Inscripciones"><i class="fa fa-pencil-square-o fa-fw"></i> Inscribir a transferencia </a>
+                                <a href="/Tbl_Inscripciones"><i class="fa fa-pencil-square-o fa-fw"></i> Inscribir a transferencia </a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_InformacionBasicaUsuario"><i class="fa fa-male fa-fw"></i> Información Usuarios</a>
+                                <a href="/Tbl_InformacionBasicaUsuario"><i class="fa fa-male fa-fw"></i> Información Usuarios</a>
                             </li>
                             <li>
-                                <a href="../Tbl_Perfiles"><i class="fa fa-male fa-fw"></i> Información de los perfiles</a>
+                                <a href="/Tbl_Perfiles"><i class="fa fa-group fa-fw"></i> Información de los perfiles</a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_Sedes"><i class="fa fa-university fa-fw"></i> Parametrizar sedes</a>
+                                <a href="/Tbl_Sedes"><i class="fa fa-university fa-fw"></i> Parametrizar sedes</a>
                             </li>
                             <li>
-                                <a href="../Tbl_Discapacidades"><i class="fa fa-wheelchair fa-fw"></i> Parametrizar discapacidades</a>
+                                <a href="/Tbl_Discapacidades"><i class="fa fa-wheelchair fa-fw"></i> Parametrizar discapacidades</a>
                             </li>
                             <li>
-                                <a href="../Tbl_Especializacion"><i class="fa fa-graduation-cap fa-fw"></i> Parametrizar especializaciones</a>
+                                <a href="/Tbl_Especializacion"><i class="fa fa-graduation-cap fa-fw"></i> Parametrizar especializaciones</a>
                             </li>
                             <li>
-                                <a href="../Tbl_Estados"><i class="fa fa-bookmark-o fa-fw"></i> Parametrizar estados transferencia</a>
+                                <a href="/Tbl_Estados"><i class="fa fa-bookmark-o fa-fw"></i> Parametrizar estados transferencia</a>
                             </li>
 
                             <li>
-                                <a href="../Account/Register"><i class="fa fa-clipboard fa-fw"></i> Registrar Usuario </a>
+                                <a href="/Account/Register"><i class="fa fa-clipboard fa-fw"></i> Registrar Usuario </a>
                             </li>
 
                             <li>
-                                <a href="../Tbl_Transferencias"><i class="fa fa-clipboard fa-fw"></i> Registrar transferencias </a>
+                                <a href="/Tbl_Transferencias"><i class="fa fa-clipboard fa-fw"></i> Registrar transferencias </a>
                             </li>
 
                             <li>
-                                <a href="../Reportes"><i class="fa fa-bullhorn fa-fw"></i> Reportes</a>
+                                <a href="/Reportes"><i class="fa fa-bullhorn fa-fw"></i> Reportes</a>
                             </li>
-                            
+
 
                         }
-                        
 
-                       
-                        
-                       
 
-                       
+
+
+
+
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -400,7 +404,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
- 
+
+    <script src="~/js/bootstrap-datepicker.js"></script>
 
     <div class="modal" tabindex="-1" role="dialog" id="modal">
         <br />
@@ -426,12 +431,14 @@
 
     <script>
 
-            function detalles(a, b) {
-                $('#contenido').load('../' + location.pathname.split('/').slice(-1)[0] + '/' + a + '/' + b);
-                $('#modal').modal();
-            }
+        function detalles(a, b) {
+            $('#contenido').load('../' + location.pathname.split('/').slice(-1)[0] + '/' + a + '/' + b);
+            $('#modal').modal();
+        }
 
-            $('#contenidoDinamico ').load('../' + location.pathname.split('/').slice(-1)[0] + 'Index');
+        $('#contenidoDinamico ').load('../' + location.pathname.split('/').slice(-1)[0] + 'Index');
+
+        $('.dateInput').datepicker({ });
 
     </script>
 

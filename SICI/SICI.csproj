@@ -410,6 +410,7 @@
     <Content Include="img\portfolio\submarine.png" />
     <Content Include="img\profile.png" />
     <Content Include="index.html" />
+    <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\contact_me.js" />
     <Content Include="js\contact_me.min.js" />
     <Content Include="js\freelancer.js" />
@@ -686,6 +687,10 @@
     <Content Include="Views\Tbl_ArchivosUsuario\Details.cshtml" />
     <Content Include="Views\Tbl_ArchivosUsuario\Edit.cshtml" />
     <Content Include="Views\Tbl_ArchivosUsuario\Index.cshtml" />
+    <Content Include="Views\Tbl_Inscripciones\CreateEspecial.cshtml" />
+    <Content Include="Views\Tbl_Inscripciones\mensaje.cshtml" />
+    <Content Include="Views\Tbl_Transferencias\IndexEsp.cshtml" />
+    <Content Include="Views\Tbl_Inscripciones\IndexEsp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

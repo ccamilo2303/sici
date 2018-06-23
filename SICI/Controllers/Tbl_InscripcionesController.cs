@@ -17,12 +17,13 @@ namespace SICI.Controllers
         // GET: Tbl_Inscripciones
         public ActionResult Index()
         {
+            var tbl_Inscripciones = db.Tbl_Inscripciones.Include(t => t.Tbl_InformacionBasicaUsuario).Include(t => t.Tbl_Transferencias);   
+            return View(tbl_Inscripciones.ToList());
+        }
 
-            
-                
-
+        public ActionResult IndexEsp()
+        {
             var tbl_Inscripciones = db.Tbl_Inscripciones.Include(t => t.Tbl_InformacionBasicaUsuario).Include(t => t.Tbl_Transferencias);
-            
             return View(tbl_Inscripciones.ToList());
         }
 
@@ -61,6 +62,41 @@ namespace SICI.Controllers
                 db.Tbl_Inscripciones.Add(tbl_Inscripciones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+
+            ViewBag.Id = new SelectList(db.Tbl_InformacionBasicaUsuario, "Id", "NombreCompleto", tbl_Inscripciones.Id);
+            ViewBag.IdTransferencia = new SelectList(db.Tbl_Transferencias, "IdTransferencia", "NombreTransferencia", tbl_Inscripciones.IdTransferencia);
+            return View(tbl_Inscripciones);
+        }
+
+
+        public ActionResult CreateEspecial(string cedula, int idTransferencia)
+        {
+            var sql = from m in db.Tbl_InformacionBasicaUsuario where m.Cedula.Equals(cedula) select m;
+            var sql2 = from m in db.Tbl_Transferencias where m.IdTransferencia == idTransferencia select m;
+
+            ViewBag.Id = new SelectList(sql, "Id", "NombreCompleto");
+            ViewBag.IdTransferencia = new SelectList(sql2, "IdTransferencia", "NombreTransferencia");
+            return View();
+        }
+
+        public ActionResult mensaje()
+        {
+            return View();
+        }
+
+        // POST: Tbl_Inscripciones/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEspecial([Bind(Include = "IdInscripcion,Id,IdTransferencia")] Tbl_Inscripciones tbl_Inscripciones)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tbl_Inscripciones.Add(tbl_Inscripciones);
+                db.SaveChanges();
+                return RedirectToAction("mensaje");
             }
 
             ViewBag.Id = new SelectList(db.Tbl_InformacionBasicaUsuario, "Id", "NombreCompleto", tbl_Inscripciones.Id);
