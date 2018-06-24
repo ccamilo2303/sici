@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace SICI.Controllers
 {
-    public class EnviarNotificacionController : Controller
+    public class NotificacionController : Controller
     {
-        // GET: EnviarNotificacion
+        // GET: Notificacion
         public ActionResult Index()
         {
             return View();
